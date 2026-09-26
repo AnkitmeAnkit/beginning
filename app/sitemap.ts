@@ -1,0 +1,3 @@
+import type { MetadataRoute } from "next";
+import { articles } from "@/lib/content";
+export default function sitemap(): MetadataRoute.Sitemap { const base = "https://echoglitch.in"; const staticPaths = ["", "/playbooks", "/blog", "/privacy", "/terms", "/refunds", "/data-policy", "/editorial-policy"]; return [...staticPaths.map((path) => ({ url: `${base}${path}`, lastModified: new Date("2026-09-26"), changeFrequency: path === "" || path === "/blog" ? "weekly" as const : "monthly" as const, priority: path === "" ? 1 : .7 })), ...articles.map((article) => ({ url: `${base}/blog/${article.slug}`, lastModified: new Date("2026-09-26"), changeFrequency: "monthly" as const, priority: .65 }))]; }

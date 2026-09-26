@@ -1,0 +1,10 @@
+import type { Metadata } from "next";
+import { LegalPage } from "@/components/legal-page";
+export const metadata: Metadata = { title: "Data policy" };
+export default function DataPolicyPage() { return <LegalPage title="Data collection and retention policy" intro="This operational policy describes how echoglitch minimises, protects, and removes data across the product platform." sections={[
+  { title: "Collection principles", paragraphs: ["We collect the minimum fields required for a specific workflow, label the purpose at the point of collection, record consent where it is relied upon, and avoid collecting sensitive personal data unless a future feature clearly requires it and suitable safeguards are in place."] },
+  { title: "Access and separation", paragraphs: ["Public forms may create records but cannot browse them. Administrative actions require an authenticated Supabase account whose email is included in a server-side allowlist. Service credentials remain server-side. Database row-level security and grants are used as a second boundary."] },
+  { title: "Payment and fulfilment records", paragraphs: ["Razorpay order and payment identifiers are stored so payments can be verified, reconciled, refunded, and fulfilled exactly once. Full payment credentials are handled by Razorpay rather than echoglitch. Email delivery references are stored to diagnose fulfilment issues."] },
+  { title: "Deletion schedule", paragraphs: ["Unconfirmed or spam submissions may be removed quickly. General enquiries and waitlist records are reviewed at least every 12 months. Order, invoice, and refund records follow legal retention requirements. Expired sessions, idempotency records, and transient rate-limit records are removed automatically or on a short schedule."] },
+  { title: "Incident handling", paragraphs: ["Suspected unauthorised access is triaged, credentials are rotated where appropriate, affected systems and records are identified, and legally required notices are made. Logs are preserved only as long as needed for investigation and accountability."] },
+]} />; }
